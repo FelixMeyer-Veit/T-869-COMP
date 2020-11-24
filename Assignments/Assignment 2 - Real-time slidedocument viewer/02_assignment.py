@@ -1,6 +1,8 @@
 ################################################ IMPORT ################################################################
 import cv2
 import time
+import numpy as np
+from matplotlib import pyplot as plt
 
 ################################################ FUNCTIONS #############################################################
 # get average of a list
@@ -36,6 +38,15 @@ def get_fps(frame, prev_frame_time):
     cv2.putText(frame, fps_avg, (7, 70), font, 3, (100, 255, 0), 3, cv2.LINE_AA)
 
     return prev_frame_time
+
+def create_edge():
+    img = cv2.imread("{}".format(img_name), 0)
+    edges = cv2.Canny(img, 100, 200)
+    plt.subplot(121), plt.imshow(img, cmap='gray')
+    plt.title('Original Image'), plt.xticks([]), plt.yticks([])
+    plt.subplot(122), plt.imshow(edges, cmap='gray')
+    plt.title('Edge Image'), plt.xticks([]), plt.yticks([])
+    plt.show()
 
 ################################################ DECLARATIONS ##########################################################
 # define a video capture object (webcam)
@@ -75,8 +86,8 @@ while (True):
         img_name = "opencv_frame_{}.png".format(img_counter)
         cv2.imwrite(img_name, frame)
         print("{} written!".format(img_name))
-        print("{}".format(img_name))
         img_counter += 1
+        create_edge()
 
 
 # Driver Code
