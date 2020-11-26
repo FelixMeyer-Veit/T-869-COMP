@@ -191,7 +191,7 @@ while (True):
         ####warped = cv2.cvtColor(warped, cv2.COLOR_BGR2GRAY)
 
         # show the original and scanned images
-        scan_name = 'Scanned_outlined_object{}.png'.format(scn_counter)
+        scan_name = 'Warped_frame_{}.png'.format(scn_counter)
         outlined_name = 'Outlined_frame_{}.png'.format(scn_counter)
         cv2.imwrite(outlined_name, image)
         cv2.imwrite(scan_name, warped)
