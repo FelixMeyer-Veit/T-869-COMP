@@ -131,6 +131,7 @@ def RANSAC(Y, X, N_points, frame):
 ################################################ DECLARATIONS ##########################################################
 # define a video capture object (webcam)
 vid = cv2.VideoCapture(0)
+#vid.open("http://192.168.10.104:8080/video") # use android phone with app IP webcam
 
 # used to record the time when we processed last frame
 prev_frame_time = 0
